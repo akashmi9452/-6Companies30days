@@ -1,1 +1,22 @@
+*****Question 1: Print Anagrams Together*****
+
+class Solution:
+    def Anagrams(self, words, n):
+        '''
+        words: list of word
+        n:      no of words
+        return : list of group of anagram {list will be sorted in driver code (not word in grp)}
+        '''
+        
+        mp = {}
+        for word in words:
+            st = ''.join(sorted(word))
+            if st in mp:
+                mp[st].append(word)
+            else:
+                mp[st] = [word]
+        return mp.values()
+        
+
+*****Question 2: Overlapping rectangles*****
 
