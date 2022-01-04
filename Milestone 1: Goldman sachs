@@ -33,4 +33,21 @@ class Solution:
         #else the rectangles overlap
         return 1
 
+
 *****Question 3: Count the subarrays having product less than k*****
+
+class Solution:
+    def countSubArrayProductLessThanK(self, a, n, k):
+        ans = 0
+        left = 0
+        prod = 1
+        
+        for right in range(n):
+            prod *= a[right]
+            while left < right and prod >= k:
+                prod /= a[left]
+                left += 1
+            if prod < k:
+                ans += right-left+1
+        return ans
+
